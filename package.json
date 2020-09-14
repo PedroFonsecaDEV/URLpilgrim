@@ -1,14 +1,12 @@
 {
-  "name": "release_0.1",
+  "name": "urlpilgrim",
   "version": "0.0.1",
   "bin": {
-    "checkurl": "bin/checkurl"
+    "urlpilgrim": "bin/urlpilgrim"
   },
-  "description": "",
+  "description": "A Node CLI that runs after brokens URLs!",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "Pedro Antonio Fonseca Ferreira",
-  "license": "ISC"
+  "license": "MIT"
 }

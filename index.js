@@ -1,3 +1,3 @@
 module.exports= () => {
-    console.log("welcome to CLI");
+    console.log("welcome to URLpilgrim");
 }
