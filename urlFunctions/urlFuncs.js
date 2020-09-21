@@ -15,8 +15,14 @@ const checkDuplicateUrl = (url, urlArray) => {
 };
 
 const testUrl = async (urlArray) => {
-  
-  for(const url of urlArray){
+  const protocolRegex = /^www(.+)/gi
+
+  for(let url of urlArray){
+    
+    if(protocolRegex.test(url)){
+      url = "https://" + url; 
+    }
+
     const spinner = ora("URL PILGRIM - Checking URLs Status").start();
     try{ 
     const urlTest = await fetch(url,{method: "head", timeout: 1500});

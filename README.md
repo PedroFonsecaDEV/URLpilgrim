@@ -16,6 +16,7 @@ Supports URLs only using protocols:
 
 \-"http://"
 
+Arguments without protocol (www.example.com) will be tested as HTTPS://www.example.com
 
 #INSTALL:
 You need to install as global:
@@ -32,7 +33,7 @@ CHECK URLs directly(-u):
 
 -u: Set the URL MODE. 
 
-> \> urlpilgrim http://www.example1.com http://example2.ca http://www.example3.com -u
+> \> urlpilgrim http://www.example1.com www.example2.ca http://www.example3.com -u
 
 Version:
 

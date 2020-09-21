@@ -3,7 +3,7 @@ function AppState () {
             
     this.urlList = [],
     this.tempData = [],
-    this.urlRegex = /(http|https)(:\/\/)([\w+\-&@`~#$%^*.=/?:]+)/gi
+    this.urlRegex = /((http|https)[:\/\/]|[www.])([\w+\-&@`~#$%^*.=/?:]+)/gi
 
 }
 //------------------------------------------
@@ -12,7 +12,7 @@ function AppState () {
 AppState.prototype.resetState = function() {
     this.urlList = [],
     this.tempData = [],
-    this.urlRegex = /(http|https)(:\/\/)([\w+\-&@`~#$%^*.=/?:]+)/gi  
+    this.urlRegex = /((http|https)[:\/\/]|[www.])([\w+\-&@`~#$%^*.=/?:]+)/gi  
 }
 
 //--------------------------------------
