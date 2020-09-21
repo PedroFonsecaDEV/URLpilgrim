@@ -28,11 +28,11 @@ const testUrl = async (urlArray) => {
       printLog(`URL: ${url} Status: ${urlTest.status}`, "bad");
       }
       else{
-      printLog(`URL: ${url} Status: Unkown`, "unknown");
+      printLog(`URL: ${url} Status: Unknown`, "unknown");
       } 
     }catch (error) {
       spinner.stop(); 
-      printLog(`URL: ${url} Status: Unkown`, "unknown");
+      printLog(`URL: ${url} Status: Unknown`, "unknown");
     } 
     
    };
