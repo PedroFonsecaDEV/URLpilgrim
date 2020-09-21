@@ -18,6 +18,7 @@ Supports URLs only using protocols:
 
 
 #INSTALL:
+You need to install as global:
 
 > \>npm i -g urlpilgrim
 

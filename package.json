@@ -2,7 +2,7 @@
   "name": "urlpilgrim",
   "version": "0.0.4",
   "bin": {
-    "urlpilgrim": "./bin/urlpilgrim"
+    "urlpilgrim": "./bin/urlpilgrim.js"
   },
   "description": "A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.",
   "main": "index.js",
