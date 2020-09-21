@@ -19,7 +19,7 @@ Version 0.1 Supports URLs only using protocols:
 
 #INSTALL:
 
-npm i urlpilgrim
+> \>npm i -g urlpilgrim
 
 #HOW TO USE:
 
