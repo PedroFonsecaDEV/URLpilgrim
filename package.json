@@ -1,6 +1,6 @@
 {
   "name": "urlpilgrim",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "bin": {
     "urlpilgrim": "./bin/urlpilgrim.js"
   },
