@@ -2,7 +2,7 @@
 
 A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.
 
-Version 0.1 Supports STATUS:
+Supports STATUS:
 
  \-200
  
@@ -10,7 +10,7 @@ Version 0.1 Supports STATUS:
  
  \-404
  
-Version 0.1 Supports URLs only using protocols:
+Supports URLs only using protocols:
 
 \-"https://"
 
