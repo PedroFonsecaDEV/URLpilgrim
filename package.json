@@ -4,12 +4,30 @@
   "bin": {
     "urlpilgrim": "bin/urlpilgrim"
   },
-  "description": "A Node CLI that runs after brokens URLs!",
+  "description": "A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.",
   "main": "index.js",
   "scripts": {},
+  "homepage": "https://github.com/PedroFonsecaDEV/URLpilgrim",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PedroFonsecaDEV/URLpilgrim"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "urlcheck",
+    "url-check",
+    "urlchecker",
+    "urlchecker"
+  ],
+  "preferGlobal": true,
   "author": "Pedro Antonio Fonseca Ferreira",
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.5"
+    "cli-color": "^2.0.0",
+    "minimist": "^1.2.5",
+    "node-fetch": "^2.6.1",
+    "ora": "^5.1.0"
   }
 }

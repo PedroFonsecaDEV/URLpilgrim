@@ -1,49 +1,33 @@
 const minimist = require("minimist");
-const fs = require("fs");
-const readLine = require("readline"); 
- 
-module.exports= () => {
-    const args = minimist(process.argv.slice(2));
-    const cmd = args._[0];
-    console.log("cm:", cmd);
-    console.log("ar:", args);
+const { testUrl, testSingleUrl } = require("./urlFunctions/urlFuncs");
+const { appState } = require("./state/appState");
+const { initializeStream, readFile } = require("./fileReader/readers");
+const { printLog, messages } = require("./consoleMsg/consoleMsg");
 
-    // const urlRegex = new RegExp("(http|https)(:\\/\\/)([\\w+\\-&@`~#$%^*.=/?:]*)(\\s)", "ig");
-    const urlRegex = /(http|https)(:\/\/)([\w+\-&@`~#$%^*.=/?:]*)/gi;
-    
-    const fileStream = readLine.createInterface({ 
-        input: fs.createReadStream("1.html"), 
-        output: null,
-        terminal: false
-    }); 
-    
-    let urlList = [];
-    let iterator = [];
-    let counter = 0;
 
-    // urlList = urlRegex.exec("http://s9y.org");
-    // console.log("r", urlList);
-
-    
-    fileStream.on('line', (input) => {
-        
-        while ((iterator = urlRegex.exec(input)) !== null) {
-            let msg = 'Found ' + iterator[0] + '. ';
-            msg += 'Next match starts at ' + urlRegex.lastIndex;
-            console.log(msg);
-            counter++;
-            urlList.push(iterator);
-        }
-        
-        
-      });
+module.exports.main = () => {
   
-    
+  let { urlList } = appState;  
+  
+  const args = minimist(process.argv.slice(2));
+  const filesToRead = args._;
+  delete args._;
 
-    
-
-    setTimeout(() => console.log(counter), 10000);
-
-    
-
-}
+  if(args.v){
+    printLog("URL PILGRIM v.0.1","good");
+  }
+  else if(args.u){
+    testUrl(filesToRead);
+  }
+  else if(filesToRead.length == 0) {
+    printLog(messages.main, "good");
+  }
+  else {
+    for(const file of filesToRead){
+      initializeStream(file)
+      .then(data => readFile(data))
+      .then(() => testUrl(urlList))
+      .catch((error) => console.log("Error: Please provide a path to a file."));
+  }
+} 
+};
