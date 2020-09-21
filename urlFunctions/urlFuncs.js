@@ -19,7 +19,7 @@ const testUrl = async (urlArray) => {
   for(const url of urlArray){
     const spinner = ora("URL PILGRIM - Checking URLs Status").start();
     try{ 
-    const urlTest = await fetch(url,{method: "head"});
+    const urlTest = await fetch(url,{method: "head", timeout: 1500});
     spinner.stop();   
      if(urlTest.status == 200){
       printLog(`URL: ${url} Status: ${urlTest.status}`, "good");

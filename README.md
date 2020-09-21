@@ -32,7 +32,7 @@ CHECK URLs directly(-u):
 
 -u: Set the URL MODE. 
 
-> \> urlpilgrim www.example1.com http://example2.ca www.example3.com -u
+> \> urlpilgrim http://www.example1.com http://example2.ca http://www.example3.com -u
 
 Version:
 
