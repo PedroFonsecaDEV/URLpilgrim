@@ -20,7 +20,6 @@ const testUrl = async (urlArray) => {
   for(let url of urlArray){
     
     if(protocolRegex.test(url)){
-      console.log("urlFunc test->", url);
       url = "https://" + url; 
     }
 
