@@ -26,6 +26,7 @@ const readFile = (fileStream) =>
         while ((tempData = urlRegex.exec(input)) !== null) {
           let urlFromText = tempData[0].trim();
           if (!checkDuplicateUrl(urlFromText, urlList)) {
+            console.log("readFile_test",tempData[0]);
             urlList.push(tempData[0]);
           }
         }
