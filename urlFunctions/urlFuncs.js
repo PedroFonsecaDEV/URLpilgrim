@@ -44,6 +44,17 @@ const testUrl = async (urlArray) => {
    };
     
   }
+
+//   zg3d commented 23 hours ago
+// This is just an option but the async await is much slower the .then().catch
+// but you can turn your await fetch to fetch().then.catch()
+
+// It will be a fire and forget it method and is much quicker, I have forked your repo and shown a potential option to quicken checking links
+// https://github.com/zg3d/URLpilgrim/blob/master/urlFunctions/urlFuncs.js#L17-L40
+
+// The downfall is that you Ora spinner won't work anymore but we can find a potential fix to it.
+// The above method quicken the tool by a great margin and might be a great addition.
+
   // const testUrl = async (urlArray) => {
   //   const protocolRegex = /^www(.+)/gi;
   //   const spinner = ora("URL PILGRIM - Checking URLs Status").start();
