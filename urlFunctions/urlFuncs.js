@@ -38,7 +38,7 @@ const testUrl = async (urlArray) => {
       } 
     }catch (error) {
       spinner.stop(); 
-      printLog(`URL: ${url} Status: Unknown`, "unknown");
+      printLog(`URL: ${url} Status: ${urlTest.status}`, "bad");
     } 
     
    };
