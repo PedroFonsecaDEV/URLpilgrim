@@ -25,9 +25,9 @@ module.exports.main = () => {
   else {
     for(const file of filesToRead){
       initializeStream(file)
-      .then(data => readFile(data))
-      .then(() => testUrl(urlList))
-      .catch((error) => console.log("Error: Please provide a path to a file."));
+      // .then(data => readFile(data))
+      // .then(() => testUrl(urlList))
+      // .catch((error) => console.log("Error: Please provide a path to a file."));
   }
 } 
 };
