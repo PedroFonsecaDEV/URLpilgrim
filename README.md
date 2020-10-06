@@ -19,10 +19,10 @@ Supports URLs only using protocols:
 Arguments without protocol (www.example.com) will be tested as HTTPS://www.example.com
 
 #INSTALL:
-You need to install as global:
-
-> \>npm i -g urlpilgrim
-
+Global installation:
+```
+\>npm i -g urlpilgrim
+```
 #HOW TO USE:
 
 SCAN and CHECK URLS inside files:
