@@ -2,13 +2,10 @@
 
 A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.
 
-Supports STATUS:
-
- \-200
- 
- \-400
- 
- \-404
+Check for Status|
+200|
+400|
+404|
  
 Supports URLs only using protocols:
 
@@ -29,7 +26,7 @@ SCAN and CHECK URLS inside files:
 ```
 urlpilgrim file1.txt file2.html 
 ```
-CHECK URLs directly(-u Set the URL MODE):
+CHECK URLs directly(-u sets the URL MODE):
 ```
 urlpilgrim http://www.example1.com www.example2.ca http://www.example3.com -u
 ```
