@@ -3,6 +3,7 @@
 A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.
 
 Check for Status|
+----------------|
 200|
 400|
 404|
