@@ -41,6 +41,6 @@ urlpilgrim
 ```
 FOR MORE INFORMATION:
 
-https://medium.com/@pedrofonsecadev/url-pilgrim-doc-a7090b4c6c53
+[URLpilgrim DOC](https://medium.com/@pedrofonsecadev/url-pilgrim-doc-a7090b4c6c53)
 
 Thanks.
