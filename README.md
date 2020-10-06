@@ -15,7 +15,7 @@ Supports URLs only using protocols:
 
 or just:
 
-* www.
+* www
 
 Arguments without protocol (www.example.com) will be tested as HTTPS://www.example.com
 
@@ -42,6 +42,4 @@ urlpilgrim -v
 ```
 urlpilgrim
 ```
-FOR MORE INFORMATION:
-
-[URLpilgrim DOC](https://medium.com/@pedrofonsecadev/url-pilgrim-doc-a7090b4c6c53)
+FOR MORE INFORMATION: [URLpilgrim DOC](https://medium.com/@pedrofonsecadev/url-pilgrim-doc-a7090b4c6c53)
