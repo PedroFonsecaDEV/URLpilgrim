@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const ora = require("ora");
-const { printLog } = require("../consoleMsg/consoleMsg");
+const { printLog } = require("../console_messages/console-msg");
 
 const checkDuplicateUrl = (url, urlArray) => {
   let found = false;

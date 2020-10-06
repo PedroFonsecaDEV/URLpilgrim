@@ -1,7 +1,7 @@
 const fs = require("fs");
 const readLine = require("readline");
-const { checkDuplicateUrl } = require("../urlFunctions/urlFuncs");
-const { appState } = require("../state/appState");
+const { checkDuplicateUrl } = require("../url_functions/url-funcs");
+const { appState } = require("../state/app-state");
 let { urlList, tempData, urlRegex } = appState;
 
 const initializeStream = (filePath) =>
