@@ -9,10 +9,13 @@ Check for Status|
 404|
  
 Supports URLs only using protocols:
+* https://
 
-\-"https://"
+* http://
 
-\-"http://"
+or just:
+
+* www.
 
 Arguments without protocol (www.example.com) will be tested as HTTPS://www.example.com
 
@@ -42,5 +45,3 @@ urlpilgrim
 FOR MORE INFORMATION:
 
 [URLpilgrim DOC](https://medium.com/@pedrofonsecadev/url-pilgrim-doc-a7090b4c6c53)
-
-Thanks.
