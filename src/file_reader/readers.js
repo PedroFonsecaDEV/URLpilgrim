@@ -1,8 +1,8 @@
 const fs = require("fs");
 const readLine = require("readline");
 const { checkDuplicateUrl } = require("../url_functions/url-funcs");
-const { appState } = require("../state/app-state");
-let { urlList, tempData, urlRegex } = appState;
+
+// this.urlRegex = /(((http|https):\/\/)|(www\.))([\w+\-&@`~#$%^*.=\/?:]+)/gi
 
 const initializeStream = (filePath) =>
   new Promise((resolve, reject) => { 
