@@ -32,7 +32,9 @@ module.exports.main = () => {
     for(const file of filesToRead){
       initializeStream(file)
       .then(data => testUrl(data))
-      .catch(() => console.log("Error: Please provide a path to a file."));
-    }
+      .catch(() => {
+        console.log("Error: Please provide a path to a file.")
+      });
+   }
   }
 };
