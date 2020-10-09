@@ -11,11 +11,7 @@ const initializeStream = async (filePath) => {
     
   urlList = data.toLowerCase().match(urlRegex);
   urlList = Array.from(new Set(urlList));
-  console.log("readExtract:",urlList);
   return urlList; 
-
-  console.log("reader...error!");
-
 };
 
 module.exports = {
