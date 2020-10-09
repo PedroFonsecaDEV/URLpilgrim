@@ -8,7 +8,6 @@ module.exports.main = () => {
   const args = minimist(process.argv.slice(2));
   const filesToRead = args._;
   delete args._;
-  console.log("args:", args);
 
   if(args.v){
     printLog("URL PILGRIM v.0.1","good");
@@ -20,11 +19,8 @@ module.exports.main = () => {
     printLog(messages.main, "good");
   }
   else if(args.bad || args.good || args.unk) {
-    console.log("ARGS", args);
     let filterResult = args.bad ? 400 : 200;
     filterResult = args.unk ? 9999 : filterResult;
-
-    console.log("filter:",filterResult);
 
     for(const file of filesToRead){
       initializeStream(file)

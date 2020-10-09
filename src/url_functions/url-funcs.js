@@ -3,7 +3,6 @@ const { printLog } = require("../console_messages/console-msg");
 
 const testUrl = async (urlArray, filterResult = null) => {
   const protocolRegex = /^www(.+)/gi;
-  console.log("urlFUNC:",filterResult);
   for (let url of urlArray) {
     if (protocolRegex.test(url)) {
       url = "https://" + url;
@@ -17,7 +16,6 @@ const testUrl = async (urlArray, filterResult = null) => {
         else printLog(`URL: ${url} Status: Unknown`, 9999); 
       }
       else {
-        // console.log("uTest",urlTest);
         if((urlTest.status == filterResult) || (filterResult == 400 && urlTest.status == 404)) printLog(`URL: ${url} Status: ${filterResult}`, filterResult);
         else if((filterResult == 9999) && urlTest.status != 200 && urlTest.status && 400 && urlTest.status != 404 ) printLog(`URL: ${url} Status: Unknown`, 9999);
       }
