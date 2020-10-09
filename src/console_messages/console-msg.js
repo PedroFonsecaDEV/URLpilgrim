@@ -5,15 +5,15 @@ const color = require("cli-color");
 //setting colors:
 const good =  color.green.bold;
 const bad =  color.red.bold; 
-const unknown =  color.cyan.bold; 
+const unk =  color.cyan.bold; 
 
 //---------------------------------
 
 const printLog = (msg, status = color.white) => {
     let color = status;
-    if(status == "good") color = good;
-    if(status == "bad") color = bad;
-    if(status == "unknown") color = unknown;
+    if(status == 200) color = good;
+    if(status == 400) color = bad;
+    if(status == 9999) color = unk;
     console.log(color(msg));
 }
 
