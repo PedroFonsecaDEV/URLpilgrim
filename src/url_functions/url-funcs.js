@@ -3,12 +3,18 @@ const { printLog } = require("../console_messages/console-msg");
 
 const testUrl = async (urlArray, filterResult = null) => {
   const protocolRegex = /^www(.+)/gi;
-  for (let url of urlArray) {
+  
+  const urlsPromises = urlArray.map((url) =>{
     if (protocolRegex.test(url)) {
       url = "https://" + url;
     }
+  
+    const urlRes = await fetch(url, { method: "head", timeout: 1500 });
 
-    fetch(url, { method: "head", timeout: 1500 })
+  })
+    
+
+    
     .then((urlTest) => {
       if(filterResult === null){
         if (urlTest.status == 200) printLog(`URL: ${url} Status: 200`, 200);
