@@ -23,7 +23,6 @@ const testUrl = async (urlArray, filterResult = null) => {
         }
       }
       else {  
-        console.log(".");
         if((urlTest.status == filterResult) || (filterResult == 400 && urlTest.status == 404)) printLog(`URL: ${url} Status: ${filterResult}`, filterResult);
         else if((filterResult == 9999) && urlTest.status != 200 && urlTest.status && 400 && urlTest.status != 404 ) printLog(`URL: ${url} Status: Unknown`, 9999);
       }
