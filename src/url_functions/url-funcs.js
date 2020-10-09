@@ -2,18 +2,6 @@ const fetch = require("node-fetch");
 const ora = require("ora");
 const { printLog } = require("../console_messages/console-msg");
 
-const checkDuplicateUrl = (url, urlArray) => {
-  let found = false;
-
-  for (let i = 0; i < urlArray.length; i++) {
-    if (urlArray[i] == url) {
-      found = true;
-      i = urlArray.length + 1;
-    }
-  }
-  return found;
-};
-
 const testUrl = async (urlArray) => {
   const protocolRegex = /^www(.+)/gi
 
@@ -37,17 +25,14 @@ const testUrl = async (urlArray) => {
       printLog(`URL: ${url} Status: Unknown`, "unknown");
       } 
     }catch (error) {
-      spinner.stop(); 
+      spinner.stop();
       printLog(`URL: ${url} Status: BAD`, "bad");
-      
     } 
     
    };
     
   }
-  
 
 module.exports = {
-    checkDuplicateUrl,
     testUrl
 };

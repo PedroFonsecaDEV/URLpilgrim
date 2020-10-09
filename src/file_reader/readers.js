@@ -2,39 +2,22 @@ const fs = require("fs");
 const readLine = require("readline");
 const { checkDuplicateUrl } = require("../url_functions/url-funcs");
 
-// this.urlRegex = /(((http|https):\/\/)|(www\.))([\w+\-&@`~#$%^*.=\/?:]+)/gi
-
-const initializeStream = (filePath) =>
-  new Promise((resolve, reject) => { 
-    const readStream = fs.createReadStream(filePath);
+const initializeStream = async (filePath) => {
+  
+  const urlRegex = /(((http|https):\/\/)|(www\.))([\w+\-&@`~#$%^*.=\/?:]+)/gi;
+  let urlList = [];
+  
+  const data = fs.readFileSync(filePath, "utf8");
     
-    readStream.on('error', function (err) {
-      reject();
-    });
+  urlList = data.toLowerCase().match(urlRegex);
+  urlList = Array.from(new Set(urlList));
+  console.log("readExtract:",urlList);
+  return urlList; 
 
-    const fileStream = readLine.createInterface({
-      input: readStream
-    });
-    
-    resolve(fileStream);
-  });
+  console.log("reader...error!");
 
-const readFile = (fileStream) =>
-  new Promise((resolve, reject) => {
-    if (fileStream) {
-      fileStream.on("line", (input) => {
-        while ((tempData = urlRegex.exec(input)) !== null) {
-          let urlFromText = tempData[0].trim();
-          if (!checkDuplicateUrl(urlFromText, urlList)) {
-            urlList.push(tempData[0]);
-          }
-        }
-        resolve();
-      });
-    }
-  });
+};
 
 module.exports = {
-  initializeStream,
-  readFile,
+  initializeStream
 };

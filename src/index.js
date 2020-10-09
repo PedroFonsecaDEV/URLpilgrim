@@ -1,14 +1,10 @@
 const minimist = require("minimist");
 const { testUrl, testSingleUrl } = require("./url_functions/url-funcs");
-const { appState } = require("./state/app-state");
 const { initializeStream, readFile } = require("./file_reader/readers");
 const { printLog, messages } = require("./console_messages/console-msg");
 
-
 module.exports.main = () => {
-  
-  let { urlList } = appState;  
-  
+
   const args = minimist(process.argv.slice(2));
   const filesToRead = args._;
   delete args._;
@@ -25,9 +21,8 @@ module.exports.main = () => {
   else {
     for(const file of filesToRead){
       initializeStream(file)
-      .then(data => readFile(data))
-      .then(() => testUrl(urlList))
-      .catch((error) => console.log("Error: Please provide a path to a file."));
+      .then(data => testUrl(data))
+      .catch(() => console.log("Error: Please provide a path to a file."));
   }
 } 
 };
