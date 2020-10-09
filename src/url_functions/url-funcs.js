@@ -10,11 +10,8 @@ const testUrl = async (urlArray) => {
       url = "https://" + url;
     }
 
-    const spinner = ora("URL PILGRIM - Checking URLs Status").start();
-
     fetch(url, { method: "head", timeout: 1500 })
       .then((urlTest) => {
-        spinner.stop();
         if (urlTest.status == 200) {
           printLog(`URL: ${url} Status: GOOD`, "good");
         } else if (urlTest.status == 400 || urlTest.status == 404) {
@@ -24,7 +21,6 @@ const testUrl = async (urlArray) => {
         }
       })
       .catch((error) => {
-        spinner.stop();
         printLog(`URL: ${url} Status: BAD`, "bad");
       });
   }
