@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const { promise } = require("ora");
 const ora = require("ora");
 const { printLog } = require("../console_messages/console-msg");
 
