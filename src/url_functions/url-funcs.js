@@ -22,19 +22,35 @@ const testUrl = (urlArray, filterResult = null, output = false) => {
   Promise.all(urlPromises)
   .then(finalResults => finalResults.map(urlTest => {
     if(filterResult === null){
-      if (urlTest.status == 200) printLog(`URL: ${urlTest.url} Status: 200`, 200);
-      else if (urlTest.status == 400 || urlTest.status == 404) printLog(`URL: ${urlTest.url} Status: 400`, 400);
-      else printLog(`URL: ${urlTest.url} Status: Unknown`, 9999);
+      if (urlTest.status == 200){
+        printLog(`URL: ${urlTest.url} Status: 200`, 200);
+        return urlTest;
+      } 
+      else if (urlTest.status == 400 || urlTest.status == 404) {
+        printLog(`URL: ${urlTest.url} Status: 400`, 400);
+        return urlTest;
       }
-      else {
-        if((urlTest.status == filterResult) || (filterResult == 400 && urlTest.status == 404)) printLog(`URL: ${urlTest.url} Status: ${filterResult}`, filterResult);
-        else if((filterResult == 9999) && urlTest.status != 200 && urlTest.status && 400 && urlTest.status != 404 ) printLog(`URL: ${urlTest.url} Status: Unknown`, 9999);
+      else { 
+        printLog(`URL: ${urlTest.url} Status: Unknown`, 9999);
+        return urlTest;
       }
-      return urlTest
+    }
+    else {
+      if((urlTest.status == filterResult) || (filterResult == 400 && urlTest.status == 404)) {
+        printLog(`URL: ${urlTest.url} Status: ${filterResult}`, filterResult);
+        return urlTest;
+      }
+      else if((filterResult == 9999) && urlTest.status != 200 && urlTest.status != 400 && urlTest.status != 404 ){
+        printLog(`URL: ${urlTest.url} Status: Unknown`, 9999);
+        return urlTest;
+      } 
+    }
   }))
   .then((results) => {
+    if(output) {
     console.log("FINAL RESULT JSON:");
-    if(output) console.log(JSON.stringify(results));
+    console.log(JSON.stringify(results.filter(urlObj => urlObj != null)));
+    }
   })
   .catch((urlObj) => {
     console.log(urlObj);
