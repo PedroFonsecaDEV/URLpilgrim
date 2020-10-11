@@ -2,6 +2,7 @@ const fetch = require("node-fetch");
 const { printLog } = require("../console_messages/console-msg");
 
 const testUrl = (urlArray, filterResult = null, output = false) => {
+  if(filterResult != 200) process.exitCode = 1;
   const fetchUrl = async(url) => {
     const protocolRegex = /^www(.+)/gi;
     
@@ -27,10 +28,12 @@ const testUrl = (urlArray, filterResult = null, output = false) => {
         return urlTest;
       } 
       else if (urlTest.status == 400 || urlTest.status == 404) {
+        process.exitCode = 1;
         printLog(`URL: ${urlTest.url} Status: 400`, 400);
         return urlTest;
       }
       else { 
+        process.exitCode = 1;
         printLog(`URL: ${urlTest.url} Status: Unknown`, 9999);
         return urlTest;
       }
@@ -53,7 +56,7 @@ const testUrl = (urlArray, filterResult = null, output = false) => {
     }
   })
   .catch((urlObj) => {
-    console.log(urlObj);
+    process.exitCode = 1;
     if(!filterResult)printLog(`URL: ${urlObj.url} Status: 400`, 400);
   });
 };
