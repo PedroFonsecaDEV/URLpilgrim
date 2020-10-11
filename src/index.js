@@ -21,20 +21,21 @@ module.exports.main = () => {
   else if(args.bad || args.good || args.unk) {
     let filterResult = args.bad ? 400 : 200;
     filterResult = args.unk ? 9999 : filterResult;
-
+    let displayJson = false;
+    if(args.j || args.json) displayJson = true;
     for(const file of filesToRead){
       initializeStream(file)
-      .then(data => testUrl(data, filterResult))
+      .then(data => testUrl(data, filterResult, displayJson))
       .catch(() => console.log("Error: Please provide a path to a file."));
     } 
   }
-  else if(Object.keys(args).length === 0) {
+  else if(Object.keys(args).length === 0 || args.j || args.json ) {
+    let displayJson = false;
+    if(args.j || args.json) displayJson = true;
     for(const file of filesToRead){
       initializeStream(file)
-      .then(data => testUrl(data))
-      .catch(() => {
-        console.log("Error: Please provide a path to a file.")
-      });
-   }
+      .then(data => testUrl(data,null,displayJson))
+      .catch(() => console.log("Error: Please provide a path to a file."));
+    }
   }
 };
