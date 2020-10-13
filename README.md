@@ -42,10 +42,11 @@ urlpilgrim http://www.example1.com www.example2.ca http://www.example3.com -u
 
 #### FILTER RESULTS:
 
-> -good returns just urls with "good" status.
-> -bad  returns just urls with "bads" status.
-> -unk  returns just urls with "unknown" status.
-
+```
+-good returns just urls with "good" status.
+-bad  returns just urls with "bads" status.
+-unk  returns just urls with "unknown" status.
+```
 ### Version:
 ```
 urlpilgrim -v  
