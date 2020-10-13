@@ -1,7 +1,7 @@
 const minimist = require("minimist");
-const { testUrl, testSingleUrl } = require("./url_functions/url-funcs");
-const { initializeStream, readFile } = require("./file_reader/readers");
-const { printLog, messages } = require("./console_messages/console-msg");
+const { testUrl, testSingleUrl } = require("./url_functions");
+const { readFiles, readFile } = require("./file_reader");
+const { printLog, messages } = require("./console_messages");
 
 module.exports.main = () => {
 
@@ -24,7 +24,7 @@ module.exports.main = () => {
     let displayJson = false;
     if(args.j || args.json) displayJson = true;
     for(const file of filesToRead){
-      initializeStream(file)
+      readFiles(file)
       .then(data => testUrl(data, filterResult, displayJson))
       .catch(() => console.log("Error: Please provide a path to a file."));
     } 
@@ -33,7 +33,7 @@ module.exports.main = () => {
     let displayJson = false;
     if(args.j || args.json) displayJson = true;
     for(const file of filesToRead){
-      initializeStream(file)
+      readFiles(file)
       .then(data => testUrl(data,null,displayJson))
       .catch(() => console.log("Error: Please provide a path to a file."));
     }

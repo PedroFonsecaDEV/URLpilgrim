@@ -2,19 +2,12 @@
 
 const color = require("cli-color");
 
-//setting colors:
-const good =  color.green.bold;
-const bad =  color.red.bold; 
-const unk =  color.cyan.bold; 
-
-//---------------------------------
-
-const printLog = (msg, status = color.white) => {
-    let color = status;
-    if(status == 200) color = good;
-    if(status == 400) color = bad;
-    if(status == 9999) color = unk;
-    console.log(color(msg));
+const printLog = (msg, status) => {
+    let paint = color.white;
+    if(status == 200) paint = color.green.bold;
+    if(status == 400) paint = color.red.bold;
+    if(status == 9999) paint = color.cyan.bold;
+    console.log(paint(msg));
 }
 
 const messages = {

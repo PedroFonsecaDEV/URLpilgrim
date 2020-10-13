@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { printLog } = require("../console_messages/console-msg");
+const { printLog } = require("../console_messages");
 
 const testUrl = (urlArray, filterResult = null, output = false) => {
   if(filterResult != 200) process.exitCode = 1;
