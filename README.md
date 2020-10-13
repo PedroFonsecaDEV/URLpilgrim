@@ -38,7 +38,9 @@ urlpilgrim http://www.example1.com www.example2.ca http://www.example3.com -u
 
 #### JSON OUTPUT:
 
-> -j --json
+```
+-j --json
+```
 
 #### FILTER RESULTS:
 
