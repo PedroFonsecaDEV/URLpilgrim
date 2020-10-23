@@ -36,6 +36,13 @@ urlpilgrim http://www.example1.com www.example2.ca http://www.example3.com -u
 ```
 ### OPTIONAL FLAGS:
 
+#### IGNORE URLS:
+``` -i or --ignore ```
+Will ignore URLS patterns found in a file. 
+VALID IGNORE FILES: ALL LINES STARTS WITH #(FOR COMMENTS), HTTP OR HTTPS. 
+``` 
+urlpilgrim fileToTest.txt -i ignore.txt 
+```
 #### JSON OUTPUT:
 
 ```
@@ -57,4 +64,3 @@ urlpilgrim -v
 ```
 urlpilgrim
 ```
-FOR MORE INFORMATION: [URLpilgrim DOC](https://medium.com/@pedrofonsecadev/url-pilgrim-doc-a7090b4c6c53)

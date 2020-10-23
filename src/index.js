@@ -18,24 +18,23 @@ module.exports.main = () => {
   else if(filesToRead.length == 0) {
     printLog(messages.main, "good");
   }
-  else if(args.bad || args.good || args.unk) {
-    let filterResult = args.bad ? 400 : 200;
-    filterResult = args.unk ? 9999 : filterResult;
-    let displayJson = false;
-    if(args.j || args.json) displayJson = true;
+  else {
+    let testMethod = {};
+
+    if(args.bad || args.good || args.unk) {
+      let filterResult = args.bad ? 400 : 200;
+      filterResult = args.unk ? 9999 : filterResult;
+      testMethod.filterStatus = filterResult;
+    } 
+    
+    testMethod.output = args.j || args.json;
+
+    testMethod.ignore = args.i || args.ignore;
+
     for(const file of filesToRead){
-      readFiles(file)
-      .then(data => testUrl(data, filterResult, displayJson))
+      readFiles(file, testMethod.ignore)
+      .then(data => testUrl(data, testMethod))
       .catch(() => console.log("Error: Please provide a path to a file."));
     } 
-  }
-  else if(Object.keys(args).length === 0 || args.j || args.json ) {
-    let displayJson = false;
-    if(args.j || args.json) displayJson = true;
-    for(const file of filesToRead){
-      readFiles(file)
-      .then(data => testUrl(data,null,displayJson))
-      .catch(() => console.log("Error: Please provide a path to a file."));
-    }
   }
 };
