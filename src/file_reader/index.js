@@ -1,7 +1,4 @@
-const { line } = require("cli-color/erase");
 const fs = require("fs");
-const readLine = require("readline");
-const { checkDuplicateUrl } = require("../url_functions");
 
 const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
   
