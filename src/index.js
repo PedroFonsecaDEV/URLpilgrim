@@ -1,6 +1,6 @@
 const minimist = require("minimist");
-const { testUrl, testSingleUrl } = require("./url_functions");
-const { readFiles, readFile } = require("./file_reader");
+const { testUrl } = require("./url_functions");
+const { readFiles } = require("./file_reader");
 const { printLog, messages } = require("./console_messages");
 
 module.exports.main = () => {
