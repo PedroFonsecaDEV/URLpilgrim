@@ -18,22 +18,25 @@ const buildUrls = (lastPostsIds) => {
   return postsUrls;
 };
 
-const readUrls = (postUrlsArray) => {
-  const fetchUrl = async (url) => {
-    try {
-      const urlResult = await fetch(url, {
-        timeout: 1500,
-        // headers: { "Content-Type": "text/html" },
-      });
-      return { url: url, content: urlResult.text()};
-    } catch (error) {
-      return { url: url, status: 400 };
-    }
-  };
+const getUrlsContent = async (url) => {
+  try {
+    const urlResult = await fetch(url, {
+      timeout: 1500,
+      Accept: "text/html"
+    });
+    const fetchResult = await urlResult.json();
+    // return { url: url, content: urlResult.text()};
+    return { url: url, content: fetchResult.html};
+  } catch (error) {
+    return { url: url, status: 400 };
+  }
+};
 
-  const urlPromises = postUrlsArray.map(fetchUrl);
+const readUrls = (postUrlsArray) => {
+
+  const urlPromises = postUrlsArray.map(getUrlsContent);
   Promise.all(urlPromises).then((finalResults) =>
-    finalResults.map((urlTest) => {console.log(urlTest.content)})
+    finalResults.map((urlTest) => {console.log((urlTest.content))})
   );
 };
 
