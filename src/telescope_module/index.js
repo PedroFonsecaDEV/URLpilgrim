@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { printLog } = require("../console_messages");
+const { testUrl } = require("../url_functions")
 
 const lastPosts = async () => {
   // fetch("http://localhost:3000/posts")
@@ -25,19 +25,24 @@ const getUrlsContent = async (url) => {
       Accept: "text/html"
     });
     const fetchResult = await urlResult.json();
-    // return { url: url, content: urlResult.text()};
     return { url: url, content: fetchResult.html};
   } catch (error) {
-    return { url: url, status: 400 };
+    return { url: url, content: null };
   }
 };
 
 const readUrls = (postUrlsArray) => {
+  const urlRegex = /(((http|https):\/\/)|(www\.))([\w+\-&@`~#$%^*.=\/?:]+)/gi;
 
   const urlPromises = postUrlsArray.map(getUrlsContent);
-  Promise.all(urlPromises).then((finalResults) =>
-    finalResults.map((urlTest) => {console.log((urlTest.content))})
-  );
+
+ Promise.all(urlPromises)
+  .then((finalResults) => finalResults.map(({content}) => {
+      const contentToCheck = Array.from(new Set(content.toLowerCase().match(urlRegex)));
+      testUrl(contentToCheck);    
+    })
+  )
+  .catch(error => console.log("ERROR", error));
 };
 
 module.exports = {

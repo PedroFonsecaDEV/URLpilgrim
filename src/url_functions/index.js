@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const { printLog } = require("../console_messages");
 
-const testUrl = (urlArray, testMethod = null) => {
+const testUrl = (urlArray = [], testMethod = {filterStatus: null}) => {
 
   if(testMethod.filterStatus != 200) process.exitCode = 1;
   
