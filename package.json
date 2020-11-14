@@ -6,7 +6,11 @@
   },
   "description": "A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "prettier": "prettier -c .",
+    "linter": "npx eslint .",
+    "check-code": "npm run linter && npm run prettier"
+  },
   "homepage": "https://github.com/PedroFonsecaDEV/URLpilgrim",
   "repository": {
     "type": "git",
@@ -29,5 +33,15 @@
     "minimist": "^1.2.5",
     "node-fetch": "^2.6.1",
     "ora": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
   }
 }

@@ -15,7 +15,7 @@ Supports URLs only using protocols:
 
 or just:
 
-* www
+* www.
 
 Arguments without protocol (www.example.com) will be tested as HTTPS://www.example.com
 

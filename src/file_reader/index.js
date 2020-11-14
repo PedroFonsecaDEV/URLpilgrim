@@ -1,21 +1,20 @@
-const fs = require("fs");
+const fs = require('fs');
 
 const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
-  
   const urlRegex = /(((http|https):\/\/)|(www\.))([\w+\-&@`~#$%^*.=\/?:]+)/gi;
 
   const protocolRegex = /^www(.+)/gi;
-  
+
   let urlList = [];
-  
-  const data = await fs.promises.readFile(fileToExtractUrls, "utf8");
+
+  const data = await fs.promises.readFile(fileToExtractUrls, 'utf8');
 
   urlList = data.toLowerCase().match(urlRegex);
   urlList = Array.from(new Set(urlList));
 
-  if(fileToIgnoreUrls) {
-    let urlsToIgnore = await fs.promises.readFile(fileToIgnoreUrls, "utf-8");
-    
+  if (fileToIgnoreUrls) {
+    let urlsToIgnore = await fs.promises.readFile(fileToIgnoreUrls, 'utf-8');
+
     const regexIgnoreUrls = /^(https:\/\/|http:\/\/|#)([\w+\-&@`~#$%^*.=\/?: ]*)/im;
 
     urlsToIgnore = urlsToIgnore.split('\n');
@@ -23,25 +22,27 @@ const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
     let validFile = 0;
     let listToIgnore = [];
 
-    for(let line of urlsToIgnore) {
-      validFile = (regexIgnoreUrls.test(line)) ? validFile : ++validFile;
+    urlsToIgnore.forEach((line) => {
+      validFile = regexIgnoreUrls.test(line) ? validFile : ++validFile;
       line.toLowerCase();
+      // eslint-disable-next-line no-unused-expressions
       line.match(urlRegex) ? listToIgnore.push(line) : null;
-    }
+    });
 
-    if(validFile != 0) throw "Invalid Ignore file." 
+    if (validFile !== 0) throw new Error('Invalid Ignore file.');
     listToIgnore = Array.from(new Set(listToIgnore));
-  
+
     urlList = urlList.reduce((finalUrls, url) => {
-      if (protocolRegex.test(url)) url = "https://" + url;
+      // eslint-disable-next-line no-param-reassign
+      if (protocolRegex.test(url)) url = `https://${url}`;
       if (!listToIgnore.some((ignoreUrl) => url.includes(ignoreUrl))) finalUrls.push(url);
-      return finalUrls
-    },[]);
+      return finalUrls;
+    }, []);
   }
 
-  return urlList; 
+  return urlList;
 };
 
 module.exports = {
-  readFiles
+  readFiles,
 };
