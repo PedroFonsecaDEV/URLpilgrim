@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-useless-path-segments
-
 const { readFiles } = require('../file_reader');
 
 function sum(a, b) {
