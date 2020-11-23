@@ -11,6 +11,7 @@
     "class-methods-use-this": "off",
     "no-useless-escape": "off",
     "array-callback-return": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "jest/globals": true
   }
 }
