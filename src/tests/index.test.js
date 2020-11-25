@@ -17,7 +17,7 @@ describe('test readFiles function - INPUT and OUTPUTS', () => {
     });
   });
 });
-
+//everything is passing (review)
 describe('test readFiles function receiving PATHS', () => {
   test('relative file path should return an Array(file names)', () => {
     ['abc.txt', 'a bc.txt'].forEach((file) => {
