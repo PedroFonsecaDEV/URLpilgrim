@@ -9,7 +9,7 @@ const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
   try {
     const data = await fs.promises.readFile(fileToExtractUrls, 'utf8');
   } catch (error) {
-    return 'readFile function failed';
+    return Promise.reject(new Error('readFile function failed'));
   }
   urlList = data.toLowerCase().match(urlRegex);
   urlList = Array.from(new Set(urlList));
