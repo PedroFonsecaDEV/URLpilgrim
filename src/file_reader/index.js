@@ -6,11 +6,10 @@ const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
   const protocolRegex = /^www(.+)/gi;
 
   let urlList = [];
-  try {
-    const data = await fs.promises.readFile(fileToExtractUrls, 'utf8');
-  } catch (error) {
-    return Promise.reject(new Error('readFile function failed'));
-  }
+
+  const data = await fs.promises.readFile(fileToExtractUrls, 'utf8');
+
+  console.log('FROM FUNC');
   urlList = data.toLowerCase().match(urlRegex);
   urlList = Array.from(new Set(urlList));
 
@@ -41,7 +40,6 @@ const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
       return finalUrls;
     }, []);
   }
-
   return urlList;
 };
 
