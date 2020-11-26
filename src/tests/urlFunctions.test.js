@@ -1,5 +1,4 @@
 const { testUrl } = require('../url_functions');
-const { printLog } = require('../console_messages');
 
 const nock = require('nock');
 const originalConsolelog = global.console.log;
