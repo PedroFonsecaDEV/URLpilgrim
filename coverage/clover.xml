@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1606422628175" clover="3.2.0">
-  <project timestamp="1606422628175" name="All files">
-    <metrics statements="73" coveredstatements="46" conditionals="48" coveredconditionals="19" methods="12" coveredmethods="7" elements="133" coveredelements="72" complexity="0" loc="73" ncloc="73" packages="3" files="3" classes="3"/>
+<coverage generated="1606428590748" clover="3.2.0">
+  <project timestamp="1606428590748" name="All files">
+    <metrics statements="79" coveredstatements="52" conditionals="48" coveredconditionals="19" methods="13" coveredmethods="8" elements="140" coveredelements="79" complexity="0" loc="79" ncloc="79" packages="4" files="4" classes="4"/>
     <package name="console_messages">
       <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="index.js" path="/Users/beagle/Desktop/URLpilgrim/src/console_messages/index.js">
@@ -47,6 +47,18 @@
         <line num="39" count="0" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="tests.e2e">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="run.js" path="/Users/beagle/Desktop/URLpilgrim/src/tests/e2e/run.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
       </file>
     </package>
     <package name="url_functions">

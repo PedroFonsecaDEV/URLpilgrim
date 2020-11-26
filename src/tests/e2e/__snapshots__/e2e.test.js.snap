@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`e2e test urlpilgrim prints error and help message when no arguments given 1`] = `
+"[37m
+      URL PILGRIM
+
+      urlpilgrim [[1m[34m[4mtarget[24m[37m[22m] <mode>
+      
+      target .................. Default mode is set to file(s).
+
+      [[1m[34m[4mempty[24m[37m[22m] ................. This page.
+      
+      -u ...................... Set URL mode. Test or scan the URL(s) target(s).
+      
+      -v ...................... Display version of URL PILGRIM.
+
+      -i ...................... Ignore URLs found in a file.
+
+      -j --json ............... Display a JSON with the results of the test.
+    
+      Examples: 
+      urlpilgrim [1m[34m[4mtest.txt[24m[37m[22m....................... Read the file, and test all
+                                                        urls found inside it.
+      
+      urlpilgrim [1m[34m[4mhttp://example.ca[24m[37m[22m -u..... Test the url http://example.ca.
+
+      urlpilgrim [1m[34m[4mtest.txt ignore.txt -i[24m[37m[22m....................... Read the file, and test all
+                                urls found inside it ignoring all urls found in ignore.txt.
+      
+      urlpilgrim [1m[34m[4mtest.txt --good[24m[37m[22m....................... Read the file, and test all
+                                     urls found inside it. Display only status 200 (good).
+
+    [39m"
+`;
+
+exports[`e2e test urlpilgrim urlpilgirim running file url_test2.txt - JUST BAD URLS 1`] = `
+"[1m[31mURL: http://www.wordpress.com/asdas/asdasda/asdas.html Status: 400[39m[22m
+[1m[31mURL: https://www.cbc.ca/asd/asdasda Status: 400[39m[22m"
+`;
+
+exports[`e2e test urlpilgrim urlpilgirim running file url_test2.txt - JUST GOOD URLS 1`] = `"[1m[32mURL: https://www.cbc.ca Status: 200[39m[22m"`;
+
+exports[`e2e test urlpilgrim urlpilgirim running file url_test2.txt - JUST UNK URLS 1`] = `"[1m[36mURL: https://naperkovskiy.wordpress.com/feed/ Status: Unknown[39m[22m"`;
+
+exports[`e2e test urlpilgrim urlpilgirim running file url_test2.txt 1`] = `
+"[1m[32mURL: https://www.cbc.ca Status: 200[39m[22m
+[1m[36mURL: https://naperkovskiy.wordpress.com/feed/ Status: Unknown[39m[22m
+[1m[31mURL: http://www.wordpress.com/asdas/asdasda/asdas.html Status: 400[39m[22m
+[1m[31mURL: https://www.cbc.ca/asd/asdasda Status: 400[39m[22m"
+`;
+
+exports[`e2e test urlpilgrim urlpilgirim running file url_test2.txt json output 1`] = `
+"[1m[32mURL: https://www.cbc.ca Status: 200[39m[22m
+[1m[36mURL: https://naperkovskiy.wordpress.com/feed/ Status: Unknown[39m[22m
+[1m[31mURL: http://www.wordpress.com/asdas/asdasda/asdas.html Status: 400[39m[22m
+[1m[31mURL: https://www.cbc.ca/asd/asdasda Status: 400[39m[22m
+FINAL RESULT JSON:
+[{\\"url\\":\\"https://www.cbc.ca\\",\\"status\\":200},{\\"url\\":\\"https://naperkovskiy.wordpress.com/feed/\\",\\"status\\":410},{\\"url\\":\\"http://www.wordpress.com/asdas/asdasda/asdas.html\\",\\"status\\":404},{\\"url\\":\\"https://www.cbc.ca/asd/asdasda\\",\\"status\\":404}]"
+`;

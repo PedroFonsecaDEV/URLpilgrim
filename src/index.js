@@ -36,7 +36,10 @@ module.exports.main = () => {
     filesToRead.forEach((file) => {
       readFiles(file, testMethod.ignore)
         .then((data) => testUrl(data, testMethod))
-        .catch(() => console.log('Error: Please provide a path to a file.'));
+        .catch(() => {
+          console.log('Error: Please provide a path to a file.');
+          process.exit(1);
+        });
     });
   }
 };
