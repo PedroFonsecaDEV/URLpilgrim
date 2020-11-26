@@ -34,7 +34,7 @@ describe('url module -> testUrl', () => {
     nock(host).head(path).reply(200);
 
     const url = `${host}${path}`;
-    const result = await testUrl([url]);
+    await testUrl([url]);
     const expected = 'URL: https://www.youtube.com/ Status: 200';
 
     expect(finalize(logOutput)).toEqual(expected);
