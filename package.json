@@ -10,7 +10,8 @@
     "prettier": "prettier -c .",
     "linter": "npx eslint .",
     "check-code": "npm run linter && npm run prettier",
-    "test": "jest --"
+    "test": "jest --",
+    "coverage": "jest --collectCoverage --"
   },
   "homepage": "https://github.com/PedroFonsecaDEV/URLpilgrim",
   "repository": {
