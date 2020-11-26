@@ -21,7 +21,7 @@ const testUrl = (urlArray = [], testMethod = { filterStatus: null }) => {
   };
 
   const urlPromises = urlArray.map(fetchUrl);
-  Promise.all(urlPromises)
+  return Promise.all(urlPromises)
     .then((finalResults) =>
       // eslint-disable-next-line consistent-return
       finalResults.map((urlTest) => {
