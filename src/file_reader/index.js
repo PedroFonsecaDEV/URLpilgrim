@@ -9,7 +9,6 @@ const readFiles = async (fileToExtractUrls, fileToIgnoreUrls = null) => {
 
   const data = await fs.promises.readFile(fileToExtractUrls, 'utf8');
 
-  console.log('FROM FUNC');
   urlList = data.toLowerCase().match(urlRegex);
   urlList = Array.from(new Set(urlList));
 
