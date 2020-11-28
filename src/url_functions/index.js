@@ -65,6 +65,7 @@ const testUrl = (urlArray = [], testMethod = { filterStatus: null }) => {
         console.log('FINAL RESULT JSON:');
         console.log(JSON.stringify(results.filter((urlObj) => urlObj != null)));
       }
+      return results;
     })
     .catch((urlObj) => {
       process.exitCode = 1;

@@ -1,6 +1,7 @@
 const { testUrl } = require('../../url_functions');
 const color = require('cli-color');
 const nock = require('nock');
+let { printLog } = require('../../console_messages');
 
 const originalConsolelog = global.console.log;
 
@@ -39,6 +40,26 @@ describe('url module -> testUrl', () => {
     const expected = color.green.bold('URL: https://www.youtube.com/ Status: 200');
 
     expect(finalize(logOutput)).toEqual(expected);
+  });
+
+  test('testing status 400 and next promise should work', async () => {
+    const host = 'https://www.youtube.com';
+    const path = '/';
+    const url = `${host}${path}`;
+    const expected = [{"status": 400, "url": "https://www.youtube.com/"}];
+    const results = await testUrl([url]);  
+    expect(results).toEqual(expected);
+  });
+
+  test('testing when throwing error', async () => {
+    const host = 'https://www.youtube.com';
+    const path = '/';
+    const url = `${host}${path}`;
+    const expected = [{"status": 400, "url": "https://www.youtube.com/"}];
+    printLog = jest.fn();
+    printLog.mockImplementation(() => { throw new Error({"status": 400, "url": "https://www.youtube.com/"})});
+    const results = await testUrl([url]);  
+    expect(results).toEqual(expected);
   });
 
   test('testing status 400', async () => {
