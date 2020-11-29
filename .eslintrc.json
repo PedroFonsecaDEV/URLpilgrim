@@ -12,6 +12,6 @@
     "no-useless-escape": "off",
     "array-callback-return": "off",
     "no-plusplus": "off",
-    "jest/globals": true
+    "jest/globals": 0
   }
 }
