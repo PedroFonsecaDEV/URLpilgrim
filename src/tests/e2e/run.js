@@ -1,3 +1,4 @@
+/* eslint-disable */
 const execa = require('execa');
 
 async function run(...args) {

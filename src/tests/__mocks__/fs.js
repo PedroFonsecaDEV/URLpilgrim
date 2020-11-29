@@ -1,3 +1,4 @@
+/* eslint-disable */
 const fs = jest.createMockFromModule('fs');
 
 // Allow adding a mock file with data to our fake filesystem

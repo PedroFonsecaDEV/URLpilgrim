@@ -1,3 +1,4 @@
+/* eslint-disable */
 const run = require('./run');
 
 describe('e2e test urlpilgrim', () => {

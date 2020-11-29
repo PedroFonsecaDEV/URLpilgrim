@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-useless-path-segments
-const { readFile } = require('fs');
+/* eslint-disable */
 const { readFiles } = require('../../file_reader/index');
 
 jest.mock('fs');

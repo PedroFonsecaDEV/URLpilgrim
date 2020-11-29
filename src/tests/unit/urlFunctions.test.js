@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { testUrl } = require('../../url_functions');
 const color = require('cli-color');
 const nock = require('nock');
