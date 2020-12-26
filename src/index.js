@@ -2,7 +2,7 @@ const minimist = require('minimist');
 const { testUrl } = require('./url_functions');
 const { readFiles } = require('./file_reader');
 const { printLog, messages } = require('./console_messages');
-const { lastPosts, buildUrls, readUrls } = require('./telescope_module');
+const { lastPosts, buildUrls, readUrls } = require('./read_url_functions');
 
 module.exports.main = () => {
   const args = minimist(process.argv.slice(2));
@@ -14,10 +14,7 @@ module.exports.main = () => {
   } else if (args.u) {
     testUrl(filesToRead);
   } else if (args.telescope) {
-    lastPosts()
-      .then((res) => buildUrls(res))
-      .then((res) => readUrls(res))
-      .catch((error) => console.log('ERROR', error));
+    readUrls(filesToRead);
   } else if (filesToRead.length === 0) {
     printLog(messages.main, 'good');
   } else {
