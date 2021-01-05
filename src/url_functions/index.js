@@ -72,6 +72,27 @@ const testUrl = (urlArray = [], testMethod = { filterStatus: null }) => {
     });
 };
 
+const isUrl = (url) => {
+  const urlRegex = /(((http|https):\/\/)|(www\.))([\w+\-&@`~#$%^*.=\/?:]+)/gi;
+  const protocolRegex = /^www(.+)/gi;
+  console.log('--->', url);
+  let urlsToTest = url.toLowerCase().match(urlRegex);
+  urlsToTest = Array.from(new Set(urlsToTest));
+
+  urlsToTest = urlsToTest.map((checkProtocol) => {
+    if (protocolRegex.test(checkProtocol)) {
+      // eslint-disable-next-line no-param-reassign
+      checkProtocol = `https://${checkProtocol}`;
+    }
+  });
+
+  if (urlsToTest.length === 1) return urlsToTest[0];
+  if (urlsToTest.length > 0) return urlsToTest;
+
+  return null;
+};
+
 module.exports = {
   testUrl,
+  isUrl,
 };

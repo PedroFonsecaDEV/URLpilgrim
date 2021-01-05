@@ -1,9 +1,11 @@
 const fetch = require('node-fetch');
-const { testUrl } = require('../url_functions');
+const { testUrl, isUrl } = require('../url_functions');
 
 const getUrlsContent = async (url) => {
+  console.log('aaaa:', url);
+  const checkUrl = isUrl(url);
   try {
-    const urlResult = await fetch(url, {
+    const urlResult = await fetch(checkUrl, {
       timeout: 1500,
       Accept: 'text/html',
     });
