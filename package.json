@@ -2,7 +2,7 @@
   "name": "urlpilgrim",
   "version": "0.0.10",
   "bin": {
-    "urlpilgrim": "./bin/urlpilgrim.js"
+    "urlpilgrim": "bin/urlpilgrim.js"
   },
   "description": "A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.",
   "main": "index.js",
@@ -43,9 +43,9 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "execa": "^4.1.0",
     "jest": "^26.6.3",
     "nock": "^13.0.5",
-    "execa": "^4.1.0",
     "prettier": "^2.1.2"
   }
 }
