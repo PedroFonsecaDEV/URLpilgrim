@@ -1,6 +1,8 @@
-# URLpilgrim
+### NOTE: If you want to see the code published on NPM (version 0.0.10) please click [here](https://github.com/PedroFonsecaDEV/URLpilgrim/tree/c0eda91b4ea7711e55e72eb616bdf6c25e9c5aac)
 
-> If you want to see the code published on NPM (version 0.0.10) please click [here](https://github.com/PedroFonsecaDEV/URLpilgrim/tree/c0eda91b4ea7711e55e72eb616bdf6c25e9c5aac)
+<br>
+
+# URLpilgrim
 
 A NODE CLI program to search for URLs inside multiple or individual files and check their STATUS as well as check URLs directly.
 
