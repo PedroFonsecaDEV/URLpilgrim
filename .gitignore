@@ -5,4 +5,4 @@ urls.html
 suggestions
 ignoreUrl.txt
 git_diff
-# package-lock.json
+package-lock.json
