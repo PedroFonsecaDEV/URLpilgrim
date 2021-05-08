@@ -29,7 +29,11 @@ jobs:
       # - node/install-packages:
       #     pkg-manager: yarn 
       - run:
-          name: Run tests
+          name: Test - Prettier
+          command: npm run prettier
+          name: Test - Linter
+          command: npm run linter
+          name: Test - Unit and E2E
           command: npm test
 
 workflows:
