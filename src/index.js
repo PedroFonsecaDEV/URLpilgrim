@@ -7,14 +7,11 @@ const { lastPosts, buildUrls, readUrls } = require('./read_url_functions');
 module.exports.main = () => {
   const args = minimist(process.argv.slice(2));
   const filesToRead = args._;
-  delete args._;
 
   if (args.v) {
     printLog('URL PILGRIM v.0.1', 'good');
   } else if (args.u) {
-    testUrl(filesToRead);
-  } else if (args.telescope) {
-    readUrls(filesToRead);
+    testUrl(args.u);
   } else if (filesToRead.length === 0) {
     printLog(messages.main, 'good');
   } else {

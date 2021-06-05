@@ -1,7 +1,12 @@
 const fetch = require('node-fetch');
 const { printLog } = require('../console_messages');
 
-const testUrl = (urlArray = [], testMethod = { filterStatus: null }) => {
+const testUrl = (urls, testMethod = { filterStatus: null }) => {
+  let urlArray = [];
+
+  if (typeof urls === 'string') urlArray.push(urls);
+  else urlArray = urls;
+
   if (testMethod.filterStatus !== 200) process.exitCode = 1;
 
   const fetchUrl = async (url) => {
