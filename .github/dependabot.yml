@@ -1,19 +1,19 @@
-version: 2
-updates:
-  # Root package.json
-  - package-ecosystem: 'npm'
-    directory: '/'
-    schedule:
-      interval: 'weekly'
-      day: 'monday'
-      # Use Eastern Standard Time (UTC -05:00)
-      timezone: 'America/Toronto'
-    open-pull-requests-limit: 15
-    commit-message:
-      prefix: 'chore: '
-    reviewers:
-      - 'PedroFonsecaDEV'
-    labels:
-      - 'dependencies'
-    # Disable automatic rebasing
-    rebase-strategy: 'disabled'
+# version: 2
+# updates:
+#   # Root package.json
+#   - package-ecosystem: 'npm'
+#     directory: '/'
+#     schedule:
+#       interval: 'weekly'
+#       day: 'monday'
+#       # Use Eastern Standard Time (UTC -05:00)
+#       timezone: 'America/Toronto'
+#     open-pull-requests-limit: 15
+#     commit-message:
+#       prefix: 'chore: '
+#     reviewers:
+#       - 'PedroFonsecaDEV'
+#     labels:
+#       - 'dependencies'
+#     # Disable automatic rebasing
+#     rebase-strategy: 'disabled'
